@@ -2,11 +2,11 @@
 import Image from "next/image";
 import imgSrc from "/public/images/image.90820376d6e59c005a22.jpg";
 
-const About = () => {
+export default function Page() {
   return (
     <section className="flex">
       <article>
-        <h1 className="text-xl font-bold dark:text-white text-black">About</h1>
+        <h1 className="text-xl font-bold dark:text-white text-black">Page</h1>
         <a href="https://twitter.com/yagodotdev" target="_blank" rel="noreferrer" className="relative z-10">
           <Image
             src={imgSrc}
@@ -47,6 +47,4 @@ const About = () => {
       </article>
     </section>
   );
-};
-
-export default About;
+}

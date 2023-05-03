@@ -1,5 +1,7 @@
 // MustReadForSoftwareEngineers.tsx
 
+import { Post } from "@/types/post";
+import { sql } from "@vercel/postgres";
 import { JetBrains_Mono } from "next/font/google";
 import Image from "next/image";
 import { Tweet } from "react-tweet";
@@ -11,33 +13,63 @@ const jetBrainsMono = JetBrains_Mono({
   fallback: ["system-ui", "arial"],
 });
 
+const pageTitle = "Must Read for Software Engineers";
+
 export const metadata = {
-  title: "Games for Software Engineers | Yago Andrade's Blog",
+  title: `${pageTitle} | Yago Andrade's Blog`,
   description: "What are some of the games that SWEs are playing?",
   // Insert other metadata here
 };
 
-const MustReadForSoftwareEngineers = () => {
+async function getData() {
+  const { rows } = await sql`SELECT * FROM posts WHERE title = (${pageTitle});`;
+  if (rows[0]) {
+    try {
+      await sql`UPDATE posts SET views = views + 1 WHERE id = (${rows[0].id});`;
+      return rows[0];
+    } catch (error) {
+      // Handle erros for incrementing views
+    }
+  }
+}
+
+export default async function Page() {
+  const post = (await getData()) as Post;
+
+  const delta = new Date().getTime() - post.created_at.getTime();
+  const difference = Math.ceil(delta / (1000 * 3600 * 24));
+
+  const formatter = new Intl.RelativeTimeFormat(`en`, { localeMatcher: "best fit", style: `long` });
+  const relativeTime = formatter.format(difference, `day`);
+
   return (
     <article>
       <div className="flex flex-col gap-y-3 dark:text-gray-300 text-gray-700">
-        <h1 className="text-2xl font-bold">Must Read for Software Engineers</h1>
+        <h1 className="text-2xl font-bold">{post.title}</h1>
         <span className="flex justify-between text-xs dark:text-gray-400 text-gray-600" style={jetBrainsMono.style}>
-          <p>@yagoandrade | May 2nd, 2023 (two weeks ago)</p>
-          <p>34,589 views</p>
+          <span className="flex flex-col lg:flex-row">
+            <p>@yagoandrade</p>
+            <p className="lg:flex hidden mx-1">|</p>
+            <p>
+              {post.created_at.toDateString()} {relativeTime}
+            </p>
+          </span>
+          <p>{post.views} views</p>
         </span>
-        <div className="flex flex-col gap-y-1">
-          <Image
-            src="https://d2r55xnwy6nx47.cloudfront.net/uploads/2020/04/Donald-Knuth_2880_Lede.jpg"
-            alt="header_image"
-            className="border p-0.5 rounded-lg border-zinc-500"
-            width={700}
-            height={300}
-          />
-          <a href="#" className="text-xs text-right text-zinc-500 hover:underline decoration-dotted">
-            © Resident Evil 4 - Capcom
-          </a>
-        </div>
+        {post.image.length > 0 && (
+          <div className="flex flex-col gap-y-1">
+            <Image
+              src={post.image}
+              alt="header_image"
+              className="border p-0.5 rounded-lg border-zinc-500"
+              width={700}
+              height={300}
+            />
+            <a href="#" className="text-xs text-right text-zinc-500 hover:underline decoration-dotted">
+              © Resident Evil 4 - Capcom
+            </a>
+          </div>
+        )}
 
         <p className="mt-3">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta consectetur dolorem dolorum laborum ab natus?
@@ -80,6 +112,4 @@ const MustReadForSoftwareEngineers = () => {
       </div>
     </article>
   );
-};
-
-export default MustReadForSoftwareEngineers;
+}
