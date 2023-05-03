@@ -31,9 +31,9 @@ const About = () => {
             international team using JavaScript and its frontend frameworks.
           </p>
           <p className="my-4">
-            While you&#39;re here, don&#39;t forget to grab a cup of coffee and read some of my articles on Computer
-            Science, Artificial Intelligence and Software Engineering (mostly Frontend engineering!), as those are my
-            most covered subjects on this blog.
+            While you&#39;re here, don&#39;t forget to read some of my articles on Computer Science, Artificial
+            Intelligence and Software Engineering (mostly Frontend engineering!) topics, as those are my most covered
+            subjects on this blog.
           </p>
         </div>
 

@@ -1,5 +1,6 @@
 import { JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
+import { AiFillGithub } from "react-icons/ai";
 import { ThemeToggle } from "../ThemeToggle";
 
 const jetBrainsMono = JetBrains_Mono({
@@ -26,7 +27,10 @@ const Header = () => {
           rel="noreferrer"
           className="dark:hover:bg-zinc-800 hover:bg-zinc-100 dark:text-white text-xs p-2"
         >
-          🌎 Find me elsewhere
+          <span className="hidden lg:flex">🌎 Find me elsewhere</span>
+          <span className="flex lg:hidden">
+            <AiFillGithub size="1.33rem" />
+          </span>
         </a>
       </span>
     </header>

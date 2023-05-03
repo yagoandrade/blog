@@ -23,7 +23,11 @@ const GamesForSoftwareEngineers = () => {
       <div className="flex flex-col gap-y-3 dark:text-gray-300 text-gray-700">
         <h1 className="text-2xl font-bold">Games for Software Engineers</h1>
         <span className="flex justify-between text-xs dark:text-gray-400 text-gray-600" style={jetBrainsMono.style}>
-          <p>@yagoandrade | May 2nd, 2023 (two weeks ago)</p>
+          <span className="flex flex-col lg:flex-row">
+            <p>@yagoandrade</p>
+            <p className="lg:flex hidden mx-1">|</p>
+            <p> May 2nd, 2023 (two weeks ago)</p>
+          </span>
           <p>34,589 views</p>
         </span>
         <div className="flex flex-col gap-y-1">
