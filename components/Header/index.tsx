@@ -10,7 +10,7 @@ const jetBrainsMono = JetBrains_Mono({
   fallback: ["system-ui", "arial"],
 });
 
-const Header = () => {
+export default function Header() {
   return (
     <header className="w-full p-6 flex justify-between items-center">
       <Link href="/" className="dark:hover:bg-zinc-800 hover:bg-zinc-100 dark:text-white font-semibold text-lg p-2">
@@ -35,6 +35,4 @@ const Header = () => {
       </span>
     </header>
   );
-};
-
-export default Header;
+}

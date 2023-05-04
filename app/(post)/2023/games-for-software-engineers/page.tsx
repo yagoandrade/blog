@@ -1,6 +1,7 @@
 // GamesForSoftwareEngineers.tsx
 
 import { Post } from "@/types/post";
+import kv from "@vercel/kv";
 import { sql } from "@vercel/postgres";
 import { JetBrains_Mono } from "next/font/google";
 import Image from "next/image";
@@ -14,6 +15,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 const pageTitle = "Games for Software Engineers";
+const pageLink = "/2023/games-for-software-engineers";
 
 export const metadata = {
   title: `${pageTitle} | Yago Andrade's Blog`,
@@ -25,6 +27,7 @@ async function getData() {
   const { rows } = await sql`SELECT * FROM posts WHERE title = (${pageTitle});`;
   if (rows[0]) {
     try {
+      await kv.incr(pageLink);
       await sql`UPDATE posts SET views = views + 1 WHERE id = (${rows[0].id});`;
       return rows[0];
     } catch (error) {
@@ -35,7 +38,8 @@ async function getData() {
 
 export default async function Page() {
   const post = (await getData()) as Post;
-
+  const views = await kv.get(pageLink);
+  console.log(views);
   const delta = new Date().getTime() - post.created_at.getTime();
   const difference = Math.ceil(delta / (1000 * 3600 * 24));
 
@@ -54,7 +58,7 @@ export default async function Page() {
               {post.created_at.toDateString()} {relativeTime}
             </p>
           </span>
-          <p>{post.views} views</p>
+          <p>{views} views</p>
         </span>
         {post.image.length > 0 && (
           <div className="flex flex-col gap-y-1">
