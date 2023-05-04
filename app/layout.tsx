@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="px-8 dark:text-white min-h-[calc(100vh-92px-84px)]">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
