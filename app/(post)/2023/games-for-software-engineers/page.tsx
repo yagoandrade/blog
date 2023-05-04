@@ -24,7 +24,7 @@ export const metadata = {
 };
 
 async function getData() {
-  const { rows } = await sql`SELECT * FROM posts WHERE title = (${pageTitle});`;
+  const { rows } = await sql`SELECT * FROM posts WHERE title = (${pageTitle}) ORDER BY title ASC;`;
   if (rows[0]) {
     try {
       await kv.incr(pageLink);
@@ -39,17 +39,18 @@ async function getData() {
 export default async function Page() {
   const post = (await getData()) as Post;
   const views = await kv.get(pageLink);
-  console.log(views);
   const delta = new Date().getTime() - post.created_at.getTime();
   const difference = Math.ceil(delta / (1000 * 3600 * 24));
 
   const formatter = new Intl.RelativeTimeFormat(`en`, { localeMatcher: "best fit", style: `long` });
-  const relativeTime = formatter.format(difference, `day`);
+  const relativeTime = formatter.format(-difference, `day`);
 
   return (
     <article>
       <div className="flex flex-col gap-y-3 dark:text-gray-300 text-gray-700">
-        <h1 className="text-2xl font-bold">{post.title}</h1>
+        <span className="flex justify-between w-full">
+          <h1 className="text-2xl font-bold">{post.title}</h1>
+        </span>
         <span className="flex justify-between text-xs dark:text-gray-400 text-gray-600" style={jetBrainsMono.style}>
           <span className="flex flex-col lg:flex-row">
             <p>@yagoandrade</p>

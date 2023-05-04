@@ -1,5 +1,8 @@
-import PostsList from "@/components/PostsList";
+import PostViews from "@/components/PostViews";
+import { Post } from "@/types/post";
+import { sql } from "@vercel/postgres";
 import { JetBrains_Mono } from "next/font/google";
+import Link from "next/link";
 
 const jetBrainsMono = JetBrains_Mono({
   weight: "400",
@@ -8,9 +11,9 @@ const jetBrainsMono = JetBrains_Mono({
   fallback: ["system-ui", "arial"],
 });
 
-export const revalidate = 60;
-
 export default async function Home() {
+  const { rows }: { rows: Post[] } = await sql`SELECT * FROM posts ORDER BY title ASC;`;
+
   return (
     <main className="flex flex-col min-w-full" style={jetBrainsMono.style}>
       <section className="text-sm flex flex-col">
@@ -19,7 +22,19 @@ export default async function Home() {
           <h3 className="w-full">title</h3>
           <button className="text-left min-w-[4rem]">views</button>
         </span>
-        <PostsList />
+        <div className="text-left w-full">
+          {rows?.map((post: Post, index) => (
+            <Link
+              href={post.link}
+              key={post.link}
+              className="dark:hover:bg-zinc-800 hover:bg-zinc-100 dark:text-white text-sm py-3 w-full flex gap-x-3 px-2"
+            >
+              <span className="min-w-[4rem] text-gray-500">{new Date(post.created_at).getFullYear()}</span>
+              <span className="w-full">{post.title}</span>
+              <PostViews post={post} />
+            </Link>
+          ))}
+        </div>
       </section>
     </main>
   );
