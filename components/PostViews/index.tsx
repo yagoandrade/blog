@@ -27,7 +27,7 @@ export default function PostViews({ post }: Props) {
   }, []);
 
   useEffect(() => {
-    post.views = views;
+    post.views = views as number;
   }, [views]);
 
   return <span className="min-w-[4rem]">{views ?? "-"}</span>;

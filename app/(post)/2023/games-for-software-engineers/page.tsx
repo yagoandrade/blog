@@ -38,7 +38,7 @@ async function getData() {
 
 export default async function Page() {
   const post = (await getData()) as Post;
-  const views = await kv.get(pageLink);
+  const views = (await kv.get(pageLink)) as number;
   const delta = new Date().getTime() - post.created_at.getTime();
   const difference = Math.ceil(delta / (1000 * 3600 * 24));
 
