@@ -38,7 +38,7 @@ export default async function Page() {
 
   return (
     <article>
-      <div className="flex flex-col gap-y-3 dark:text-gray-300 text-gray-700">
+      <div className="flex flex-col gap-y-3 dark:text-gray-300 text-gray-700 leading-7 tracking-normal">
         <span className="flex justify-between w-full">
           <h1 className="text-2xl font-bold">{post.title}</h1>
         </span>
@@ -57,10 +57,9 @@ export default async function Page() {
             <Image
               src={post.image}
               alt="header_image"
-              className="border p-0.5 rounded-lg border-zinc-500"
+              className="border p-0.5 rounded-lg border-zinc-500 max-h-72 object-cover"
               width={700}
               height={300}
-              placeholder="blur"
             />
             <a href="#" className="text-xs text-right text-zinc-500 hover:underline decoration-dotted">
               © Resident Evil 4 - Capcom
@@ -87,7 +86,7 @@ export default async function Page() {
           </a>
           is, oficially, <b>one of the games ever released.</b>
         </span>
-        <h3 className="font-semibold text-xl my-5">Logic games</h3>
+        <h3 className="font-semibold text-xl my-3">Logic games</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, voluptates! Veniam dignissimos odio, nam aut
           laudantium harum magni quas dolorum corrupti iste sequi eligendi doloremque natus nulla quo laborum animi.
