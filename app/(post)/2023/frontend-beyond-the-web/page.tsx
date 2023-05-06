@@ -12,7 +12,11 @@ export const metadata = {
   title: `${pageTitle} | Yago Andrade's Blog`,
   description:
     "Let's delve into the world of frontend engineering outside of web development, exploring the technologies used, the companies hiring for these skills, and the valuable software created without a web frontend layer",
-  // Insert other metadata here
+  openGraph: {
+    title: `${pageTitle} | Yago Andrade's Blog`,
+    description:
+      "Let's delve into the world of frontend engineering outside of web development, exploring the technologies used, the companies hiring for these skills, and the valuable software created without a web frontend layer",
+  },
 };
 
 async function getData() {

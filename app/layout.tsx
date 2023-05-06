@@ -3,14 +3,6 @@ import Header from "@/components/Header";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-export const metadata = {
-  title: "Yago Andrade's blog",
-  description: "Made with NextJS",
-  icons: {
-    icon: "/favicon/favicon.ico",
-  },
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">

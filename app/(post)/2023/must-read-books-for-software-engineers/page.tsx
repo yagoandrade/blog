@@ -10,8 +10,13 @@ const pageLink = "/2023/must-read-books-for-software-engineers";
 
 export const metadata = {
   title: `${pageTitle} | Yago Andrade's Blog`,
-  description: "What are some of the games that SWEs are playing?",
-  // Insert other metadata here
+  description:
+    "A successful career in software engineering is built on a strong foundation of knowledge and continuous learning. Books can be a great way to deepen your understanding, expand your skill set, and stay up-to-date with the latest trends in the industry. In this blog post, we'll explore seven essential books for software engineers, catering to various experience levels, from beginner to advanced.",
+  openGraph: {
+    title: `${pageTitle} | Yago Andrade's Blog`,
+    description:
+      "A successful career in software engineering is built on a strong foundation of knowledge and continuous learning. Books can be a great way to deepen your understanding, expand your skill set, and stay up-to-date with the latest trends in the industry. In this blog post, we'll explore seven essential books for software engineers, catering to various experience levels, from beginner to advanced.",
+  },
 };
 
 export default async function Page() {
