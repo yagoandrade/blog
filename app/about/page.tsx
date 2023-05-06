@@ -31,8 +31,8 @@ export default function Page() {
           </p>
           <p className="my-4">
             While you&#39;re here, don&#39;t forget to read some of my articles on Computer Science, Artificial
-            Intelligence and Software Engineering (mostly Frontend engineering!) topics, as those are my most covered
-            subjects on this blog.
+            Intelligence and Software Engineering (mostly Frontend) topics, as those are my most covered subjects on
+            this blog.
           </p>
         </div>
 

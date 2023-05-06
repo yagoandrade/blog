@@ -30,5 +30,5 @@ export default function PostViews({ post }: Props) {
     post.views = views as number;
   }, [views]);
 
-  return <span className="min-w-[4rem]">{views ?? "-"}</span>;
+  return <span className="min-w-[3.5rem]">{views ?? "-"}</span>;
 }

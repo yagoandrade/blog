@@ -62,6 +62,7 @@ export default async function Page() {
               className="border p-0.5 rounded-lg border-zinc-500"
               width={700}
               height={300}
+              placeholder="blur"
             />
             <a href="#" className="text-xs text-right text-zinc-500 hover:underline decoration-dotted">
               © Resident Evil 4 - Capcom
