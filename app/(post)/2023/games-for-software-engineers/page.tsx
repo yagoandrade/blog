@@ -3,16 +3,8 @@
 import { Post } from "@/types/post";
 import kv from "@vercel/kv";
 import { sql } from "@vercel/postgres";
-import { JetBrains_Mono } from "next/font/google";
 import Image from "next/image";
 import { Tweet } from "react-tweet";
-
-const jetBrainsMono = JetBrains_Mono({
-  weight: "400",
-  style: "normal",
-  subsets: ["latin"],
-  fallback: ["system-ui", "arial"],
-});
 
 const pageTitle = "Games for Software Engineers";
 const pageLink = "/2023/games-for-software-engineers";
@@ -24,14 +16,13 @@ export const metadata = {
 };
 
 async function getData() {
+  "use server";
   const { rows } = await sql`SELECT * FROM posts WHERE title = (${pageTitle}) ORDER BY title ASC;`;
   if (rows[0]) {
     try {
-      await kv.incr(pageLink);
-      await sql`UPDATE posts SET views = views + 1 WHERE id = (${rows[0].id});`;
       return rows[0];
     } catch (error) {
-      // Handle erros for incrementing views
+      // Handle errors for incrementing views
     }
   }
 }
@@ -51,7 +42,7 @@ export default async function Page() {
         <span className="flex justify-between w-full">
           <h1 className="text-2xl font-bold">{post.title}</h1>
         </span>
-        <span className="flex justify-between text-xs dark:text-gray-400 text-gray-600" style={jetBrainsMono.style}>
+        <span className="flex justify-between text-xs dark:text-gray-400 text-gray-600 font-mono">
           <span className="flex flex-col lg:flex-row">
             <p>@yagoandrade</p>
             <p className="lg:flex hidden mx-1">|</p>

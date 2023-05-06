@@ -5,8 +5,14 @@ module.exports = {
   darkMode: "class",
   content: ["./components/**/*.{js,ts,jsx,tsx,mdx}", "./app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
+      },
+    },
   },
+
   plugins: [
     plugin(function ({ addVariant }) {
       // this class is applied to `html` by `app/theme-efect.ts`, similar

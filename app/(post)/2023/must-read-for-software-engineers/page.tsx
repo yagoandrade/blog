@@ -3,16 +3,8 @@
 import { Post } from "@/types/post";
 import kv from "@vercel/kv";
 import { sql } from "@vercel/postgres";
-import { JetBrains_Mono } from "next/font/google";
 import Image from "next/image";
 import { Tweet } from "react-tweet";
-
-const jetBrainsMono = JetBrains_Mono({
-  weight: "400",
-  style: "normal",
-  subsets: ["latin"],
-  fallback: ["system-ui", "arial"],
-});
 
 const pageTitle = "Must Read for Software Engineers";
 const pageLink = "/2023/must-read-for-software-engineers";
@@ -23,20 +15,19 @@ export const metadata = {
   // Insert other metadata here
 };
 
-async function getData() {
-  const { rows } = await sql`SELECT * FROM posts WHERE title = (${pageTitle});`;
-  if (rows[0]) {
-    try {
-      await kv.incr(pageLink);
-      await sql`UPDATE posts SET views = views + 1 WHERE id = (${rows[0].id});`;
-      return rows[0];
-    } catch (error) {
-      // Handle erros for incrementing views
+export default async function Page() {
+  async function getData() {
+    "use server";
+    const { rows } = await sql`SELECT * FROM posts WHERE title = (${pageTitle});`;
+    if (rows[0]) {
+      try {
+        return rows[0];
+      } catch (error) {
+        // Handle errors for incrementing views
+      }
     }
   }
-}
 
-export default async function Page() {
   const post = (await getData()) as Post;
   const views = (await kv.get(pageLink)) as number;
 
@@ -53,7 +44,7 @@ export default async function Page() {
           <h1 className="text-2xl font-bold">{post.title}</h1>
         </span>
 
-        <span className="flex justify-between text-xs dark:text-gray-400 text-gray-600" style={jetBrainsMono.style}>
+        <span className="flex justify-between text-xs dark:text-gray-400 text-gray-600 font-mono">
           <span className="flex flex-col lg:flex-row">
             <p>@yagoandrade</p>
             <p className="lg:flex hidden mx-1">|</p>

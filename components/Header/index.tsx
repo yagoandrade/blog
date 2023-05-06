@@ -1,22 +1,25 @@
-import { JetBrains_Mono } from "next/font/google";
+"use client";
+
+import { incrementPathViews } from "@/utils/common";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { ThemeToggle } from "../ThemeToggle";
 
-const jetBrainsMono = JetBrains_Mono({
-  weight: "400",
-  style: "normal",
-  subsets: ["latin"],
-  fallback: ["system-ui", "arial"],
-});
-
 export default function Header() {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    incrementPathViews(pathname);
+  }, [pathname]);
+
   return (
     <header className="w-full p-6 flex justify-between items-center">
       <Link href="/" className="dark:hover:bg-zinc-800 hover:bg-zinc-100 dark:text-white font-semibold text-lg p-2">
         Yago Andrade
       </Link>
-      <span className="flex gap-x-2 items-center" style={jetBrainsMono.style}>
+      <span className="flex gap-x-2 items-center font-mono">
         <ThemeToggle />
         <Link href="/about" className="dark:hover:bg-zinc-800 hover:bg-zinc-100 dark:text-white text-xs p-2">
           About

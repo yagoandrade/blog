@@ -11,7 +11,7 @@ export default function PostViews({ post }: Props) {
   const [views, setViews] = useState<number | null>(post.views);
 
   async function getViews() {
-    const res: Response = await fetch(`/api/hello?link=${post.link}`, {
+    const res: Response = await fetch(`/api/views?link=${post.link}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
