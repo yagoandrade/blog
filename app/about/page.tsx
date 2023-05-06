@@ -2,6 +2,15 @@
 import Image from "next/image";
 import imgSrc from "/public/images/image.90820376d6e59c005a22.jpg";
 
+export const metadata = {
+  title: `About Me | Yago Andrade's Blog`,
+  description: "About Yago Andrade.",
+  openGraph: {
+    title: `About Me | Yago Andrade's Blog`,
+    description: "About Yago Andrade.",
+  },
+};
+
 export default function Page() {
   return (
     <section className="flex">
