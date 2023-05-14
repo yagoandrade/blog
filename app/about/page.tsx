@@ -2,14 +2,14 @@
 import Image from "next/image";
 import imgSrc from "/public/images/image.90820376d6e59c005a22.jpg";
 
-export const metadata = {
+/* export const metadata = {
   title: `About Me | Yago Andrade's Blog`,
   description: "About Yago Andrade.",
   openGraph: {
     title: `About Me | Yago Andrade's Blog`,
     description: "About Yago Andrade.",
   },
-};
+}; */
 
 export default function Page() {
   return (
@@ -31,27 +31,22 @@ export default function Page() {
             I&#39;m a software engineer with a strong focus on frontend development and web technologies.
           </p>
           <p className="my-4">
-            I spent my early teens solving miniature problems using C++ and playing computer games to pass the time, it
-            devolved to using C and having no time to play in college, but hey! At least a few good memories were made.
+            I have always been fascinated with computers since a young age, and my passion for solving problems led me
+            to experiment with various programming languages and paradigms, and to solve a lot of problems in the
+            computer science realm.
           </p>
           <p className="my-4">
-            After joining the Phantom Network core team, I helped develop state-of-the-art web3 applications with an
-            international team using JavaScript and its frontend frameworks.
+            Throughout my career, I&#39;ve had the privilege of working with incredibly talented and awe-inspiring
+            individuals. Collaborating on cutting-edge projects and discussing the latest industry developments has
+            helped me to learn and grow both personally and professionally; on this blog, I hope to pay it forward by
+            sharing my experiences and thoughts with other developers.
           </p>
           <p className="my-4">
-            While you&#39;re here, don&#39;t forget to read some of my articles on Computer Science, Artificial
-            Intelligence and Software Engineering (mostly Frontend) topics, as those are my most covered subjects on
-            this blog.
+            In my articles, I cover various topics related to software engineering and frontend development. I&#39;m
+            constantly learning and evolving my skills to stay up-to-date with the latest industry trends and
+            technologies, and I hope to share some of that knowledge and random thoughts about technology here.
           </p>
         </div>
-
-        {/* <h1 className="text-xl font-bold dark:text-white text-black">Technical contributions</h1>
-        <ul className="list-disc">
-          <li>Done something</li>
-          <li>Done something</li>
-          <li>Done something</li>
-          <li>Done something</li>
-        </ul> */}
       </article>
     </section>
   );

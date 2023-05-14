@@ -3,12 +3,11 @@
 import { Post } from "@/types/post";
 import kv from "@vercel/kv";
 import { sql } from "@vercel/postgres";
-import Image from "next/image";
 
 const pageTitle = "Frontend Development Beyond the Web: Exploring Alternative Technologies";
 const pageLink = "/2023/frontend-beyond-the-web";
 
-export const metadata = {
+/* export const metadata = {
   title: `${pageTitle} | Yago Andrade's Blog`,
   description:
     "Let's delve into the world of frontend engineering outside of web development, exploring the technologies used, the companies hiring for these skills, and the valuable software created without a web frontend layer",
@@ -17,7 +16,7 @@ export const metadata = {
     description:
       "Let's delve into the world of frontend engineering outside of web development, exploring the technologies used, the companies hiring for these skills, and the valuable software created without a web frontend layer",
   },
-};
+}; */
 
 async function getData() {
   "use server";
@@ -58,12 +57,10 @@ export default async function Page() {
         </span>
         {post.image.length > 0 && (
           <div className="flex flex-col gap-y-1">
-            <Image
+            <img
               src={post.image}
               alt="header_image"
-              className="border p-0.5 rounded-lg border-zinc-500 max-h-72 object-cover"
-              width={700}
-              height={300}
+              className="border p-0.5 rounded-lg border-zinc-500 object-cover flex h-72 object-cover w-full"
             />
             <a
               href="https://unsplash.com/pt-br/fotografias/1HCb2gPk3ik"
