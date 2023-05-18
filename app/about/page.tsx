@@ -31,20 +31,21 @@ export default function Page() {
             I&#39;m a software engineer with a strong focus on frontend development and web technologies.
           </p>
           <p className="my-4">
-            I have always been fascinated with computers since a young age, and my passion for solving problems led me
-            to experiment with various programming languages and paradigms, and to solve a lot of problems in the
-            computer science realm.
+            Since a young age, I&apos;ve been fascinated with computers, games and problem-solving. I&apos;ve embarked
+            on a journey of exploration, experimenting with diverse programming languages, paradigms, and software
+            architectures. Continually seeking fresh avenues for innovation and conquering challenges, I am committed to
+            documenting my findings and sharing my evolving journey here.
           </p>
           <p className="my-4">
-            Throughout my career, I&#39;ve had the privilege of working with incredibly talented and awe-inspiring
-            individuals. Collaborating on cutting-edge projects and discussing the latest industry developments has
-            helped me to learn and grow both personally and professionally; on this blog, I hope to pay it forward by
-            sharing my experiences and thoughts with other developers.
+            Throughout my career, I&apos;ve also had the privilege of working with incredibly talented individuals.
+            Collaborating on cutting-edge projects and discussing industry developments has helped me learn and grow
+            personally and professionally. On this blog, I aim to share my experiences and thoughts with other
+            developers.
           </p>
           <p className="my-4">
-            In my articles, I cover various topics related to software engineering and frontend development. I&#39;m
-            constantly learning and evolving my skills to stay up-to-date with the latest industry trends and
-            technologies, and I hope to share some of that knowledge and random thoughts about technology here.
+            In my articles, I try to cover various topics related to software engineering and frontend development. I
+            constantly learn and evolve my skills to stay up-to-date with industry trends and technologies, so feel free
+            to join me on this journey.
           </p>
         </div>
       </article>
