@@ -83,7 +83,7 @@ const TableContent = ({ posts }: Props) => {
       <span className="text-left border-b h-fit flex w-full justify-start">
         <button
           className="min-w-[4.5rem] lg:min-w-[6rem] text-left flex gap-x-1 items-center justify-between px-1 lg:px-3 hover:bg-gray-100
-          dark:hover:bg-[#313131] py-2"
+          dark:hover:bg-gray-800 py-2"
           onClick={() => sortBy("date")}
         >
           date
@@ -96,7 +96,7 @@ const TableContent = ({ posts }: Props) => {
         </button>
         <button
           className="w-full text-left flex gap-x-3 items-center justify-between px-1 lg:px-3 hover:bg-gray-100
-          dark:hover:bg-[#313131] py-2"
+          dark:hover:bg-gray-800 py-2"
           onClick={() => sortBy("title")}
         >
           title
@@ -109,7 +109,7 @@ const TableContent = ({ posts }: Props) => {
         </button>
         <button
           className="text-left min-w-[4.5rem] lg:min-w-[6rem] flex gap-x-1 items-center justify-between px-1 lg:px-3 hover:bg-gray-100
-          dark:hover:bg-[#313131] py-2"
+          dark:hover:bg-gray-800 py-2"
           onClick={() => sortBy("views")}
         >
           views
@@ -127,9 +127,9 @@ const TableContent = ({ posts }: Props) => {
             <Link
               href={post.link}
               key={post.link}
-              className="dark:hover:bg-zinc-800 hover:bg-zinc-100 dark:text-white text-sm py-3 w-full flex gap-x-3 lg:px-2"
+              className="dark:hover:bg-gray-800 hover:bg-zinc-100 dark:text-white text-sm py-3 w-full flex gap-x-3 lg:px-2"
             >
-              <span className="min-w-[4.5rem] lg:min-w-[6rem] text-gray-500">
+              <span className="min-w-[4.5rem] lg:min-w-[6rem] dark:text-gray-400 text-gray-500">
                 {new Date(post.created_at).toLocaleDateString("en-us")}
               </span>
               <span className="w-full">{post.title}</span>

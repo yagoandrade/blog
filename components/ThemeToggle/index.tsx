@@ -69,10 +69,10 @@ export function ThemeToggle() {
       <button
         aria-label="Toggle theme"
         className={`inline-flex ${
-          isHovering && !isHoveringOverride ? "bg-gray-200 dark:bg-[#313131]" : ""
+          isHovering && !isHoveringOverride ? "bg-gray-200 dark:bg-gray-800" : ""
         } active:bg-gray-200 transition-[background-color] dark:active:bg-[#242424] rounded-sm p-2 
           bg-gray-100
-          dark:bg-[#313131]
+          dark:bg-gray-800
           theme-system:!bg-inherit
           [&_.sun-icon]:hidden
           dark:[&_.moon-icon]:hidden

@@ -44,7 +44,7 @@ export default async function Page() {
 
   return (
     <article>
-      <div className="flex flex-col gap-y-3 dark:text-gray-300 text-gray-700 leading-7 tracking-normal">
+      <div className="flex flex-col gap-y-3 dark:text-gray-100 text-gray-700 leading-7 tracking-normal">
         <span className="flex justify-between w-full">
           <h1 className="text-2xl font-bold">{post.title}</h1>
         </span>
@@ -69,7 +69,7 @@ export default async function Page() {
               href="https://unsplash.com/pt-br/fotografias/1HCb2gPk3ik"
               target="_blank"
               rel="noreferrer"
-              className="text-xs text-right text-zinc-500 hover:underline decoration-dotted"
+              className="text-xs text-right dark:text-gray-400 text-gray-600 my-1 hover:underline decoration-dotted"
             >
               © Fili Santillán - Unsplash
             </a>
@@ -104,7 +104,7 @@ export default async function Page() {
           For frontend development on embedded systems and IoT devices, languages like C, C++, and Rust are popular
           choices, along with specific libraries and frameworks designed for the hardware in question.
         </p>
-        <p className="text-center font-bold text-zinc-500 pointer-events-none">* * *</p>
+        <p className="text-center font-bold text-gray-500 pointer-events-none">* * *</p>
         <p>
           Various industries and companies seek talented frontend developers for non-web projects. Software companies
           like Adobe and Microsoft, game studios such as Electronic Arts and Ubisoft, and hardware manufacturers like

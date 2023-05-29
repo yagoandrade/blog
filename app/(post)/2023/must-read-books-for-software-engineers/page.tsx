@@ -71,7 +71,7 @@ export default async function Page() {
               href="https://www.quantamagazine.org/computer-scientist-donald-knuth-cant-stop-telling-stories-20200416/"
               target="_blank"
               rel="noreferrer"
-              className="text-xs text-right text-zinc-500 hover:underline decoration-dotted"
+              className="text-xs text-right dark:text-gray-400 text-gray-600 my-1 hover:underline decoration-dotted"
             >
               © Quantamagazine
             </a>
@@ -83,7 +83,7 @@ export default async function Page() {
             "A successful career in software engineering is built on a strong foundation of knowledge and continuous learning. Books can be a great way to deepen your understanding, expand your skill set, and stay up-to-date with the latest trends in the industry. In this blog post, we'll explore seven essential books for software engineers, catering to various experience levels, from beginner to advanced."
           }
         </p>
-        <blockquote className="p-4 my-4 border-l-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-zinc-800">
+        <blockquote className="p-4 my-4 border-l-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
           <p className="italic font-medium leading-relaxed text-gray-900 dark:text-white">
             {"The reading of all good books is like a conversation with the finest minds of past centuries."}
           </p>
@@ -155,7 +155,7 @@ export default async function Page() {
           depth and rigor for those seeking to expand their understanding of computer science and programming.`}
         </p>
 
-        <p className="text-center font-bold text-zinc-500 pointer-events-none">* * *</p>
+        <p className="text-center font-bold text-gray-500 pointer-events-none">* * *</p>
         <p>
           {`These seven books, ranging from beginner to advanced levels, offer valuable insights and techniques to help
           you grow in your career as a software engineer. By investing time in continuous learning and expanding your
