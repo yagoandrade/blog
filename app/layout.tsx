@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
       </head>
-      <body className="xl:px-96 dark:bg-gray-900 bg-white font-inter min-h-screen">
+      <body className="xl:px-96 dark:bg-[#17141E] bg-white font-inter min-h-screen">
         <Header />
         <main className="px-4 lg:px-8 dark:text-white min-h-[calc(100vh-76px-52px)] lg:min-h-[calc(100vh-92px-84px)]">
           {children}

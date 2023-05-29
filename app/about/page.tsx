@@ -19,33 +19,29 @@ export default function Page() {
         <a href="https://twitter.com/yagodotdev" target="_blank" rel="noreferrer" className="relative z-10">
           <Image
             src={imgSrc}
-            alt="Yago Andrade"
+            alt="Yago"
             draggable={false}
             className="rounded-full bg-gray-100 mt-2 mb-5 mx-auto sm:float-right max-h-[175px] w-[175px] shadow-xl object-cover sm:ml-5 sm:mb-5 hover:outline hover:outline-1 dark:hover:outline-white outline-green-400 transition duration-150"
             unoptimized
             priority
           />
         </a>
-        <div className="w-full leading-relaxed relative">
+        <div className="w-full leading-relaxed relative text-sm">
           <p className="my-4">
-            I&#39;m a software engineer with a strong focus on frontend development and web technologies.
+            As a passionate software engineer, I&apos;ve always been captivated by computers, games, and
+            problem-solving. Specializing in frontend development and web technologies, I have continuously explored
+            diverse programming languages, paradigms, and software architectures, always eager to innovate and surmount
+            challenges.
           </p>
           <p className="my-4">
-            Since a young age, I&apos;ve been fascinated with computers, games and problem-solving. I&apos;ve embarked
-            on a journey of exploration, experimenting with diverse programming languages, paradigms, and software
-            architectures. Continually seeking fresh avenues for innovation and conquering challenges, I am committed to
-            documenting my findings and sharing my evolving journey here.
+            Having the privilege of working with talented peers on cutting-edge projects has greatly enhanced my
+            personal and professional growth. Through this blog, I intend to share my insights and experiences with
+            fellow developers.
           </p>
           <p className="my-4">
-            Throughout my career, I&apos;ve also had the privilege of working with incredibly talented individuals.
-            Collaborating on cutting-edge projects and discussing industry developments has helped me learn and grow
-            personally and professionally. On this blog, I aim to share my experiences and thoughts with other
-            developers.
-          </p>
-          <p className="my-4">
-            In my articles, I try to cover various topics related to software engineering and frontend development. I
-            constantly learn and evolve my skills to stay up-to-date with industry trends and technologies, so feel free
-            to join me on this journey.
+            My articles cover a spectrum of topics related to software engineering and frontend development, reflecting
+            my commitment to staying current with industry trends and technologies. Feel free to join me on this
+            ever-evolving journey.
           </p>
         </div>
       </article>
