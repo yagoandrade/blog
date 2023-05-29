@@ -20,7 +20,7 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col min-w-full font-mono">
-      <TableContent rows={rows} />
+      <TableContent posts={rows} />
     </main>
   );
 }

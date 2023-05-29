@@ -15,7 +15,7 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header className="w-full p-6 flex justify-between items-center">
+    <header className="w-full px-3 py-4 lg:px-6 lg:py-6 flex justify-between items-center">
       <Link href="/" className="dark:hover:bg-zinc-800 hover:bg-zinc-100 dark:text-white font-semibold text-lg p-2">
         Yago Andrade
       </Link>

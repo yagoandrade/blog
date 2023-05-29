@@ -34,11 +34,14 @@ export default async function Page() {
   const post = (await getData()) as Post;
   const views = (await kv.get(pageLink)) as number;
 
+  /*   
+  // Relative time
   const delta = new Date().getTime() - post.created_at.getTime();
   const difference = Math.ceil(delta / (1000 * 3600 * 24));
 
   const formatter = new Intl.RelativeTimeFormat(`en`, { localeMatcher: "best fit", style: `long` });
-  const relativeTime = formatter.format(-difference, `day`);
+  const relativeTime = formatter.format(-difference, `day`); 
+  */
 
   return (
     <article>
@@ -52,7 +55,7 @@ export default async function Page() {
             <p>@yagoandrade</p>
             <p className="lg:flex hidden mx-1">|</p>
             <p>
-              {post.created_at.toDateString()} {relativeTime === "in 0 days" ? "now" : relativeTime}
+              {post.created_at.toDateString()} {/* {relativeTime === "in 0 days" ? "now" : relativeTime} */}
             </p>
           </span>
           <p>{views} views</p>
