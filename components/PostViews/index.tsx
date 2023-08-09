@@ -1,6 +1,7 @@
 "use client";
 
 import { Post } from "@/types/post";
+import { getPostViewsFromLocalStorage, setPostViewsOnLocalStorage } from "@/utils/clientCommon";
 import { useEffect, useState } from "react";
 
 interface Props {
@@ -8,20 +9,17 @@ interface Props {
 }
 
 export default function PostViews({ post }: Props) {
-  const [views, setViews] = useState<number | null>(post.views);
+  const lsStoredViews = getPostViewsFromLocalStorage(post.link);
+
+  const [views, setViews] = useState<number | null>(lsStoredViews ?? post.views);
 
   async function getViews() {
-    const res: Response = await fetch(`/api/views?link=${post.link}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res: Response = await fetch(`/api/views?id=${post.id}`);
 
-    const { data } = await res.json();
-    const rows = JSON.parse(data);
+    const views = await res.json();
+    setViews(views);
 
-    setViews(rows[post.id]);
+    setPostViewsOnLocalStorage(post.link, views);
   }
 
   useEffect(() => {
@@ -29,7 +27,7 @@ export default function PostViews({ post }: Props) {
   }, []);
 
   useEffect(() => {
-    post.views = views as number;
+    post.views = views ?? 0;
   }, [views]);
 
   return <span className="min-w-[4rem] lg:min-w-[5rem] pl-1">{views ?? "-"}</span>;

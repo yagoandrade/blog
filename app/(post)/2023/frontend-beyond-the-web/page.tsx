@@ -3,7 +3,6 @@
 import { sql } from "@vercel/postgres";
 
 const pageTitle = "Frontend Development Beyond the Web: Exploring Alternative Technologies";
-const pageLink = "/2023/frontend-beyond-the-web";
 
 export const metadata = {
   title: `${pageTitle} | Yago's Blog`,

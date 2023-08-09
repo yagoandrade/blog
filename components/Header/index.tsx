@@ -1,6 +1,7 @@
 "use client";
 
-import { incrementPathViews } from "@/utils/common";
+import { incrementPostViewsOnLocalStorage } from "@/utils/clientCommon";
+import { incrementPathViewsOnDatabase } from "@/utils/serverCommon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
@@ -11,7 +12,10 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    incrementPathViews(pathname);
+    if (pathname !== "/") {
+      incrementPathViewsOnDatabase(pathname);
+      incrementPostViewsOnLocalStorage(pathname);
+    }
   }, [pathname]);
 
   return (

@@ -3,10 +3,12 @@ import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  const { rows }: { rows: Post[] } = await sql`SELECT * FROM posts ORDER BY created_at DESC;`;
+  const { searchParams } = new URL(request.url);
+  const id = searchParams.get("id");
 
-  const _rows = rows.reduce((a, item) => ({ ...a, [item.id]: item.views }), {});
+  const { rows }: { rows: Post[] } = await sql`SELECT views FROM posts WHERE id = ${id};`;
 
-  const data = JSON.stringify(_rows);
-  return NextResponse.json({ data });
+  const views = JSON.stringify(rows[0].views);
+
+  return NextResponse.json(rows[0].views);
 }
