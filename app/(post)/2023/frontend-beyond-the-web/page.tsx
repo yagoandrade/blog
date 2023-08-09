@@ -25,7 +25,7 @@ export default async function Page() {
   const post = rows[0];
 
   return (
-    <article className="prose prose-base md:prose-lg lg:prose-xl dark:prose-invert prose-headings:my-6 prose-p:my-4 prose-hr:my-4 flex flex-col dark:text-gray-100 text-gray-700 leading-7 tracking-normal min-w-full mb-16">
+    <article className="prose prose-base md:prose-lg lg:prose-xl dark:prose-invert prose-headings:my-7 mt-10 prose-p:my-4 prose-hr:my-4 flex flex-col dark:text-gray-100 text-gray-700 leading-7 tracking-normal min-w-full mb-16">
       <PostHeader
         title={post.title}
         createdAt={post.created_at.toDateString()}

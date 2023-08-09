@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer className="flex justify-between w-full p-4 lg:p-8 dark:text-white text-sm font-mono">
       <a
-        href="https://github.com/yagoandrade"
+        href="https://twitter.com/yagoandradev"
         target="_blank"
         rel="noreferrer"
         className="hover:underline decoration-dotted"
