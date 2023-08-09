@@ -4,7 +4,6 @@ export interface Post {
   image: string;
   link: string;
   description: string;
-  content: string;
   views: number;
   created_at: Date;
 }

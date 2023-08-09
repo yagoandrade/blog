@@ -1,7 +1,7 @@
 "use client";
 import { IoMdShareAlt } from "react-icons/io";
 
-const CopyButton = () => {
+const CopyURLButton = () => {
   return (
     <button
       className="inline-flex active:bg-gray-200 transition-[background-color] dark:active:bg-[#242424] rounded-sm p-2"
@@ -15,4 +15,4 @@ const CopyButton = () => {
   );
 };
 
-export default CopyButton;
+export default CopyURLButton;

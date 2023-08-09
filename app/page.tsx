@@ -4,7 +4,7 @@ import { sql } from "@vercel/postgres";
 
 export default async function Home() {
   const { rows }: { rows: Post[] } =
-    await sql`SELECT id, title, image, link, description, content, created_at FROM posts ORDER BY created_at DESC;`;
+    await sql`SELECT id, title, image, link, description, created_at FROM posts ORDER BY created_at DESC;`;
 
   return (
     <main className="flex flex-col min-w-full font-mono">

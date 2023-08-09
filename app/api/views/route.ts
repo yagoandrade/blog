@@ -8,7 +8,5 @@ export async function GET(request: Request) {
 
   const { rows }: { rows: Post[] } = await sql`SELECT views FROM posts WHERE id = ${id};`;
 
-  const views = JSON.stringify(rows[0].views);
-
   return NextResponse.json(rows[0].views);
 }

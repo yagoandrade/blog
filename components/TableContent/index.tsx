@@ -21,18 +21,15 @@ const TableContent = ({ posts }: Props) => {
   const [viewsSort, setViewsSort] = useState(0);
 
   useEffect(() => {
-    if (sort.sortType === "none") {
-      setRows(posts);
-    }
+    if (sort.sortType === "none") setRows(posts);
 
     if (sort.sortType === "asc") {
       const sortedRows = rows;
       sortedRows.sort((a, b) => {
         if (a.title < b.title) return -1;
-        if (a.title > b.title) return 1;
+        else if (a.title > b.title) return 1;
         return 0;
       });
-
       setRows(sortedRows);
     }
     if (sort.sortType === "desc") {

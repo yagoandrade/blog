@@ -15,10 +15,8 @@ export default function PostViews({ post }: Props) {
 
   async function getViews() {
     const res: Response = await fetch(`/api/views?id=${post.id}`);
-
     const views = await res.json();
     setViews(views);
-
     setPostViewsOnLocalStorage(post.link, views);
   }
 

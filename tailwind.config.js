@@ -19,6 +19,7 @@ module.exports = {
       // to how `dark:` gets enabled
       addVariant("theme-system", ".theme-system &");
     }),
+    require("@tailwindcss/typography"),
   ],
   future: {
     hoverOnlyWhenSupported: true,
