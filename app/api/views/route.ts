@@ -1,12 +1,12 @@
-import kv from "@vercel/kv";
+import { Post } from "@/types/post";
+import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const link = searchParams.get("link");
+  const { rows }: { rows: Post[] } = await sql`SELECT * FROM posts ORDER BY created_at DESC;`;
 
-  const views = ((await kv.get(link ?? "")) as number) ?? 0;
+  const _rows = rows.reduce((a, item) => ({ ...a, [item.id]: item.views }), {});
 
-  const data = JSON.stringify(views);
+  const data = JSON.stringify(_rows);
   return NextResponse.json({ data });
 }

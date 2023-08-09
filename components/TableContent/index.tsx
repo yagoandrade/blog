@@ -33,7 +33,6 @@ const TableContent = ({ posts }: Props) => {
         return 0;
       });
 
-      console.log(sortedRows);
       setRows(sortedRows);
     }
     if (sort.sortType === "desc") {

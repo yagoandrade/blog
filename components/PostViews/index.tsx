@@ -19,7 +19,9 @@ export default function PostViews({ post }: Props) {
     });
 
     const { data } = await res.json();
-    setViews(JSON.parse(data));
+    const rows = JSON.parse(data);
+
+    setViews(rows[post.id]);
   }
 
   useEffect(() => {

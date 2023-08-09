@@ -2,21 +2,21 @@
 import Image from "next/image";
 import imgSrc from "/public/images/image.90820376d6e59c005a22.jpg";
 
-/* export const metadata = {
-  title: `About Me | Yago Andrade's Blog`,
-  description: "About Yago Andrade.",
+export const metadata = {
+  title: `About Me | Yago's Blog`,
+  description: "About Yago.",
   openGraph: {
-    title: `About Me | Yago Andrade's Blog`,
-    description: "About Yago Andrade.",
+    title: `About Me | Yago's Blog`,
+    description: "About Yago.",
   },
-}; */
+};
 
-export default function Page() {
+export default async function Page() {
   return (
     <section className="flex">
       <article>
         <h1 className="text-xl font-bold dark:text-white text-black">About</h1>
-        <a href="https://twitter.com/yagodotdev" target="_blank" rel="noreferrer" className="relative z-10">
+        <a href="https://twitter.com/yagoandradev" target="_blank" rel="noreferrer" className="relative z-10">
           <Image
             src={imgSrc}
             alt="Yago"

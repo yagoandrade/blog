@@ -1,47 +1,32 @@
 // MustReadForSoftwareEngineers.tsx
 
 import { Post } from "@/types/post";
-import kv from "@vercel/kv";
 import { sql } from "@vercel/postgres";
 
 const pageTitle = "7 Must-Read Books for Software Engineers: From Beginner to Advanced";
 const pageLink = "/2023/must-read-books-for-software-engineers";
 
-/* export const metadata = {
-  title: `${pageTitle} | Yago Andrade's Blog`,
+export const metadata = {
+  title: `${pageTitle} | Yago's Blog`,
   description:
-    "A successful career in software engineering is built on a strong foundation of knowledge and continuous learning. Books can be a great way to deepen your understanding, expand your skill set, and stay up-to-date with the latest trends in the industry. In this blog post, we'll explore seven essential books for software engineers, catering to various experience levels, from beginner to advanced.",
+    "Let's delve into the world of frontend engineering outside of web development, exploring the technologies used, the companies hiring for these skills, and the valuable software created without a web frontend layer",
   openGraph: {
-    title: `${pageTitle} | Yago Andrade's Blog`,
+    title: `${pageTitle} | Yago's Blog`,
     description:
-      "A successful career in software engineering is built on a strong foundation of knowledge and continuous learning. Books can be a great way to deepen your understanding, expand your skill set, and stay up-to-date with the latest trends in the industry. In this blog post, we'll explore seven essential books for software engineers, catering to various experience levels, from beginner to advanced.",
+      "Let's delve into the world of frontend engineering outside of web development, exploring the technologies used, the companies hiring for these skills, and the valuable software created without a web frontend layer",
   },
-}; */
+};
 
 export default async function Page() {
   async function getData() {
     "use server";
     const { rows } = await sql`SELECT * FROM posts WHERE title = (${pageTitle});`;
-    if (rows[0]) {
-      try {
-        return rows[0];
-      } catch (error) {
-        // Handle errors for incrementing views
-      }
-    }
+
+    return rows[0];
   }
 
   const post = (await getData()) as Post;
-  const views = (await kv.get(pageLink)) as number;
-
-  /*   
-  // Relative time
-  const delta = new Date().getTime() - post.created_at.getTime();
-  const difference = Math.ceil(delta / (1000 * 3600 * 24));
-
-  const formatter = new Intl.RelativeTimeFormat(`en`, { localeMatcher: "best fit", style: `long` });
-  const relativeTime = formatter.format(-difference, `day`); 
-  */
+  const views = post.views;
 
   return (
     <article>

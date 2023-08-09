@@ -1,46 +1,25 @@
-// GamesForSoftwareEngineers.tsx
+// FrontendBeyondTheWeb.tsx
 
-import { Post } from "@/types/post";
-import kv from "@vercel/kv";
 import { sql } from "@vercel/postgres";
 
 const pageTitle = "Frontend Development Beyond the Web: Exploring Alternative Technologies";
 const pageLink = "/2023/frontend-beyond-the-web";
 
-/* export const metadata = {
-  title: `${pageTitle} | Yago Andrade's Blog`,
+export const metadata = {
+  title: `${pageTitle} | Yago's Blog`,
   description:
     "Let's delve into the world of frontend engineering outside of web development, exploring the technologies used, the companies hiring for these skills, and the valuable software created without a web frontend layer",
   openGraph: {
-    title: `${pageTitle} | Yago Andrade's Blog`,
+    title: `${pageTitle} | Yago's Blog`,
     description:
       "Let's delve into the world of frontend engineering outside of web development, exploring the technologies used, the companies hiring for these skills, and the valuable software created without a web frontend layer",
   },
-}; */
-
-async function getData() {
-  "use server";
-  const { rows } = await sql`SELECT * FROM posts WHERE title = (${pageTitle}) ORDER BY title ASC;`;
-  if (rows[0]) {
-    try {
-      return rows[0];
-    } catch (error) {
-      // Handle errors for incrementing views
-    }
-  }
-}
+};
 
 export default async function Page() {
-  const post = (await getData()) as Post;
-  const views = (await kv.get(pageLink)) as number;
-  /*   
-  // Relative time
-  const delta = new Date().getTime() - post.created_at.getTime();
-  const difference = Math.ceil(delta / (1000 * 3600 * 24));
-
-  const formatter = new Intl.RelativeTimeFormat(`en`, { localeMatcher: "best fit", style: `long` });
-  const relativeTime = formatter.format(-difference, `day`); 
-  */
+  const { rows } = await sql`SELECT * FROM posts WHERE title = (${pageTitle}) ORDER BY title ASC;`;
+  const post = rows[0];
+  const views = post.views;
 
   return (
     <article>
