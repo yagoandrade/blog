@@ -25,9 +25,6 @@ export default function Header() {
       </Link>
       <span className="flex gap-x-2 items-center font-mono">
         <ThemeToggle />
-        {/* <Link href="/about" className="dark:hover:bg-[#282828] hover:bg-zinc-100 dark:text-white text-xs p-2">
-          About
-        </Link> */}
         <a
           href="https://github.com/yagoandrade"
           target="_blank"
