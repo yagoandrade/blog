@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
         <title>{`Yago's Blog`}</title>
       </head>
-      <body className="xl:px-96 dark:bg-[#120e1b] bg-white font-inter min-h-screen">
+      <body className="xl:px-60 bg-gradient-to-b dark:from-[#0f0f0f] dark:to-[#191919] from-[#f9f9f8] to-[#f2f3f2] font-inter min-h-screen">
         <Header />
         <main className="px-4 lg:px-8 dark:text-white min-h-[calc(100vh-76px-52px)] lg:min-h-[calc(100vh-92px-84px)]">
           {children}
