@@ -124,7 +124,9 @@ const TableContent = ({ posts }: Props) => {
               idx + 1 !== rows.length ? "border-b border-[#d4d4d4] dark:border-[#242424]" : ""
             }`}
           >
-            <span className="break-words w-full lg:pl-1">{post.title}</span>
+            <span className="break-words w-full lg:pl-1">
+              <p className="hover:underline w-fit">{post.title}</p>
+            </span>
             <PostViews post={post} />
             <span className="min-w-[4.75rem] lg:min-w-[6rem] px-3 sm:px-5">
               {formatDate(new Date(post.created_at))}
