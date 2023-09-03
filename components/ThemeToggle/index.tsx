@@ -51,10 +51,6 @@ export function ThemeToggle() {
             text-[9px]
             mr-[-5px]
             text-gray-400
-
-            /* mobile */
-            hidden
-
             md:inline
           `}
         >
@@ -68,11 +64,11 @@ export function ThemeToggle() {
       */}
       <button
         aria-label="Toggle theme"
-        className={`inline-flex ${
-          isHovering && !isHoveringOverride ? "bg-gray-200 dark:bg-gray-800" : ""
+        className={`inline-flex${
+          isHovering && !isHoveringOverride ? " bg-gray-200 dark:bg-gray-800" : ""
         } active:bg-gray-200 transition-[background-color] dark:active:bg-[#242424] rounded-sm p-2 
           bg-gray-100
-          dark:bg-[#282828]
+          dark:bg-[#242424]
           theme-system:!bg-inherit
           [&_.sun-icon]:hidden
           dark:[&_.moon-icon]:hidden

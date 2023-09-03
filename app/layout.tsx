@@ -3,6 +3,54 @@ import Header from "@/components/Header";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
+import localFont from "next/font/local";
+
+const graphik = localFont({
+  src: [
+    {
+      path: "../public/assets/fonts/graphik/GraphikThin.otf",
+      weight: "100",
+      style: "thin",
+    },
+    {
+      path: "../public/assets/fonts/graphik/GraphikExtraLight.otf",
+      weight: "200",
+      style: "extralight",
+    },
+    {
+      path: "../public/assets/fonts/graphik/GraphikLight.otf",
+      weight: "300",
+      style: "light",
+    },
+    {
+      path: "../public/assets/fonts/graphik/GraphikRegular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/assets/fonts/graphik/GraphikMedium.otf",
+      weight: "500",
+      style: "medium",
+    },
+    {
+      path: "../public/assets/fonts/graphik/GraphikSemibold.otf",
+      weight: "600",
+      style: "semibold",
+    },
+    {
+      path: "../public/assets/fonts/graphik/GraphikBold.otf",
+      weight: "700",
+      style: "bold",
+    },
+    {
+      path: "../public/assets/fonts/graphik/GraphikBlack.otf",
+      weight: "900",
+      style: "black",
+    },
+  ],
+  variable: "--font-graphik",
+});
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -16,7 +64,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
         <title>{`Yago's Blog`}</title>
       </head>
-      <body className="xl:px-60 bg-gradient-to-b dark:from-[#0f0f0f] dark:to-[#191919] from-[#f9f9f8] to-[#f2f3f2] font-inter min-h-screen">
+      <body
+        className={`xl:px-80 bg-gradient-to-b dark:from-[#0f0f0f] dark:to-[#111010] from-[#f9fafb] to-[#fff] min-h-screen ${graphik.className}`}
+      >
         <Header />
         <main className="px-4 lg:px-8 dark:text-white min-h-[calc(100vh-76px-52px)] lg:min-h-[calc(100vh-92px-84px)]">
           {children}

@@ -1,6 +1,7 @@
 "use client";
 
 import { Post } from "@/types/post";
+import { formatDate } from "@/utils/clientCommon";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BsSortDown, BsSortUpAlt } from "react-icons/bs";
@@ -75,65 +76,62 @@ const TableContent = ({ posts }: Props) => {
   };
 
   return (
-    <section className="text-sm lg:text-sm flex flex-col">
-      <span className="text-left border-b h-fit flex w-full justify-start">
+    <section className="text-sm lg:text-sm flex flex-col text-left">
+      <span className="h-fit flex w-full justify-start">
         <button
-          className="min-w-[4.5rem] lg:min-w-[6rem] text-left flex gap-x-1 items-center justify-between px-1 lg:px-3 hover:bg-gray-100
-          dark:hover:bg-[#282828] py-2"
-          onClick={() => sortBy("date")}
-        >
-          date
-          {sort.property === "date" && sort.sortType === "asc" && (
-            <BsSortDown className="dark:text-white text-black" size="1.2rem" />
-          )}
-          {sort.property === "date" && sort.sortType === "desc" && (
-            <BsSortUpAlt className="dark:text-white text-black" size="1.2rem" />
-          )}
-        </button>
-        <button
-          className="w-full text-left flex gap-x-3 items-center justify-between px-1 lg:px-3 hover:bg-gray-100
-          dark:hover:bg-[#282828] py-2"
+          className="w-full text-left flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-[#242424] px-1.5 lg:px-3 py-2 w-full rounded-sm justify-between"
           onClick={() => sortBy("title")}
         >
           title
           {sort.property === "title" && sort.sortType === "asc" && (
-            <BsSortDown className="dark:text-white text-black" size="1.2rem" />
+            <BsSortDown className="dark:text-white text-black" size="1rem" />
           )}
           {sort.property === "title" && sort.sortType === "desc" && (
-            <BsSortUpAlt className="dark:text-white text-black" size="1.2rem" />
+            <BsSortUpAlt className="dark:text-white text-black" size="1rem" />
           )}
         </button>
         <button
-          className="text-left min-w-[4.5rem] lg:min-w-[6rem] flex gap-x-1 items-center justify-between px-1 lg:px-3 hover:bg-gray-100
-          dark:hover:bg-[#282828] py-2"
+          className="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-[#242424] px-1 lg:px-3 py-2 min-w-[4.75rem] lg:min-w-[6rem] rounded-sm justify-between"
           onClick={() => sortBy("views")}
         >
           views
           {sort.property === "views" && sort.sortType === "asc" && (
-            <BsSortDown className="dark:text-white text-black" size="1.2rem" />
+            <BsSortDown className="dark:text-white text-black" size="1rem" />
           )}
           {sort.property === "views" && sort.sortType === "desc" && (
-            <BsSortUpAlt className="dark:text-white text-black" size="1.2rem" />
+            <BsSortUpAlt className="dark:text-white text-black" size="1rem" />
+          )}
+        </button>
+        <button
+          className="flex gap-x-2 items-center hover:bg-gray-100 dark:hover:bg-[#242424] px-1 lg:px-3 py-2 min-w-[4.75rem] lg:min-w-[6rem] rounded-sm justify-between"
+          onClick={() => sortBy("date")}
+        >
+          date
+          {sort.property === "date" && sort.sortType === "asc" && (
+            <BsSortDown className="dark:text-white text-black" size="1rem" />
+          )}
+          {sort.property === "date" && sort.sortType === "desc" && (
+            <BsSortUpAlt className="dark:text-white text-black" size="1rem" />
           )}
         </button>
       </span>
-      <div className="text-left w-full">
-        <div className="text-left w-full">
-          {rows?.map((post: Post) => (
-            <Link
-              href={post.link}
-              key={post.link}
-              className="dark:hover:bg-[#282828] hover:bg-zinc-100 dark:text-white text-sm py-3 w-full flex gap-x-3 lg:px-2"
-            >
-              <span className="min-w-[4.5rem] lg:min-w-[6rem] dark:text-gray-400 text-gray-500">
-                {new Date(post.created_at).toLocaleDateString("en-us")}
-              </span>
-              <span className="w-full">{post.title}</span>
-              <PostViews post={post} />
-            </Link>
-          ))}
-        </div>
-      </div>
+      <section className="w-full">
+        {rows?.map((post: Post, idx: number) => (
+          <Link
+            href={post.link}
+            key={post.link}
+            className={`dark:hover:bg-[#242424] hover:bg-zinc-100 dark:text-white text-sm py-3 w-full flex p-2 rounded-sm ${
+              idx + 1 !== rows.length ? "border-b border-[#d4d4d4] dark:border-[#242424]" : ""
+            }`}
+          >
+            <span className="break-words w-full lg:pl-1">{post.title}</span>
+            <PostViews post={post} />
+            <span className="min-w-[4.75rem] lg:min-w-[6rem] px-3 sm:px-5">
+              {formatDate(new Date(post.created_at))}
+            </span>
+          </Link>
+        ))}
+      </section>
     </section>
   );
 };

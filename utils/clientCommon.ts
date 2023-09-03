@@ -17,3 +17,7 @@ export function incrementPostViewsOnLocalStorage(link: string) {
   localStorage.setItem(link, (lsStoredViews + 1).toString());
   return lsStoredViews + 1;
 }
+
+export function formatDate(d: Date) {
+  return (d.getMonth() + 1).toString() + `/` + d.getDay().toString() + `/` + d.getFullYear().toString().substr(-2);
+}
