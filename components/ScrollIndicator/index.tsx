@@ -10,9 +10,10 @@ const ProgressContainer = styled.div`
   height: 3px;
   background: transparent;
 `;
-const ProgressBar = styled.div`
+
+const ProgressBar = styled.div<{ width: number }>`
   height: 3px;
-  background: ${(props) => props.color || "#0066ff"};
+  background: ${(props) => props.color ?? "#0066ff"};
   width: ${(props) => props.width || 0}%;
 `;
 
