@@ -13,7 +13,7 @@ const graphik = localFont({
       style: "thin",
     },
     {
-      path: "../public/assets/fonts/graphik/GraphikExtraLight.otf",
+      path: "../public/assets/fonts/graphik/GraphikExtralight.otf",
       weight: "200",
       style: "extralight",
     },
