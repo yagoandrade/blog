@@ -26,7 +26,7 @@ export default function Header() {
       >
         Yago Andrade
       </Link>
-      <span className="flex gap-x-2 items-center font-mono">
+      <span className="flex gap-x-0.5 items-center font-mono">
         <ThemeToggle />
         <a
           href="https://github.com/yagoandrade"
