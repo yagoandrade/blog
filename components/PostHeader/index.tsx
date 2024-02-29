@@ -13,7 +13,7 @@ const PostHeader = ({ title, createdAt, views, imgSrc, copyright }: Props) => {
   return (
     <>
       <h1 className="mb-0 font-soehne font-normal">{title}</h1>
-      <span className="flex justify-between text-sm text-gray-600 text-base my-0 not-prose items-center mt-2 mb-4 text-[#585b61]">
+      <span className="flex flex-wrap gap-x-3 justify-between text-sm text-gray-600 text-base my-0 not-prose items-center mt-2 mb-4 text-[#585b61]">
         <span className="flex flex-col lg:flex-row">
           <p>
             Last edited:{" "}

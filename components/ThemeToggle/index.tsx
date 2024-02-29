@@ -49,7 +49,6 @@ export function ThemeToggle() {
         <span
           className={`
             text-[9px]
-            mr-[-5px]
             text-gray-400
             md:inline
           `}

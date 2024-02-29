@@ -1,7 +1,6 @@
 // Welcome.tsx
 
 import PostHeader from "@/components/PostHeader";
-import ScrollIndicator from "@/components/ScrollIndicator";
 import PostContent from "@/posts/welcome.mdx";
 
 import { sql } from "@vercel/postgres";
@@ -27,7 +26,7 @@ export default async function Page() {
 
   return (
     <article className="prose prose-base md:prose-base dark:prose-invert prose-headings:my-4 prose-p:my-4 prose-hr:my-4 flex flex-col dark:text-[#d0d6e0] text-gray-700 leading-7 tracking-normal min-w-full mb-16">
-      <ScrollIndicator />
+      {/* <ScrollIndicator /> */}
       <PostHeader title={post.title} createdAt={post.created_at} views={post.views} imgSrc={post.image} />
       <PostContent />
     </article>
