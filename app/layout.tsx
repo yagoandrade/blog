@@ -51,7 +51,16 @@ const graphik = localFont({
   variable: "--font-graphik",
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const soehne = localFont({
+  src: [
+    {
+      path: "../public/assets/fonts/soehne/soehne-var.woff2",
+    },
+  ],
+  variable: "--font-soehne",
+});
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
@@ -65,10 +74,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>{`Yago's Blog`}</title>
       </head>
       <body
-        className={`xl:px-80 bg-gradient-to-b dark:from-[#0f0f0f] dark:to-[#111010] from-[#f9fafb] to-[#fff] min-h-screen ${graphik.className}`}
+        className={`xl:px-80 bg-gradient-to-b dark:from-[#0f0f0f] dark:to-[#111010] from-stone-100 via-neutral-100 to-emerald-100 min-h-screen font-extralight ${soehne.className}`}
       >
         <Header />
-        <main className="px-4 lg:px-8 dark:text-white min-h-[calc(100vh-76px-52px)] lg:min-h-[calc(100vh-92px-84px)]">
+        <main className="px-6 lg:px-8 py-4 dark:text-white min-h-[calc(100vh-76px-52px)] lg:min-h-[calc(100vh-92px-84px)]">
           {children}
         </main>
         <Footer />

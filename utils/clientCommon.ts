@@ -19,5 +19,9 @@ export function incrementPostViewsOnLocalStorage(link: string) {
 }
 
 export function formatDate(d: Date) {
-  return (d.getMonth() + 1).toString() + `/` + d.getDate().toString() + `/` + d.getFullYear().toString().substr(-2);
+  return d.toLocaleDateString("pt-BR", {
+    year: "2-digit",
+    month: "2-digit",
+    day: "numeric",
+  });
 }

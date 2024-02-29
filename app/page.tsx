@@ -7,7 +7,7 @@ export default async function Home() {
     await sql`SELECT id, title, image, link, description, created_at FROM posts ORDER BY created_at DESC;`;
 
   return (
-    <main className="flex flex-col min-w-full font-mono">
+    <main className="flex flex-col min-w-full">
       <TableContent posts={rows} />
     </main>
   );

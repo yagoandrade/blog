@@ -12,10 +12,11 @@ interface Props {
 const PostHeader = ({ title, createdAt, views, imgSrc, copyright }: Props) => {
   return (
     <>
-      <h1 className="mb-0 font-inter">{title}</h1>
-      <span className="flex justify-between text-sm dark:text-gray-400 text-gray-600 text-base font-mon my-0 not-prose items-center -mt-2 mb-4">
-        <span className="flex flex-col lg:flex-row mt-2">
+      <h1 className="mb-0 font-soehne font-normal">{title}</h1>
+      <span className="flex justify-between text-sm text-gray-600 text-base my-0 not-prose items-center mt-2 mb-4 text-[#585b61]">
+        <span className="flex flex-col lg:flex-row">
           <p>
+            Last edited:{" "}
             {createdAt.toLocaleString("en-US", {
               hour12: false,
               hour: "2-digit",

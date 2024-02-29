@@ -28,5 +28,5 @@ export default function PostViews({ post }: Props) {
     post.views = views ?? 0;
   }, [views]);
 
-  return <p className="min-w-[4.75rem] lg:min-w-[6rem] px-3 sm:px-5">{views ?? "-"}</p>;
+  return <p>{views ?? "-"}</p>;
 }

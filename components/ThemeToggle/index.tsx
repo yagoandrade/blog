@@ -66,13 +66,14 @@ export function ThemeToggle() {
         aria-label="Toggle theme"
         className={`inline-flex${
           isHovering && !isHoveringOverride ? " bg-gray-200 dark:bg-gray-800" : ""
-        } active:bg-gray-200 transition-[background-color] dark:active:bg-[#242424] rounded-sm p-2 
+        } active:bg-gray-200 transition-[background-color] dark:active:bg-[#242424] p-2
           bg-gray-100
-          dark:bg-[#242424]
+          dark:bg-[#222224]
           theme-system:!bg-inherit
           [&_.sun-icon]:hidden
           dark:[&_.moon-icon]:hidden
           dark:[&_.sun-icon]:inline
+          min-h-full
         }`}
         onClick={(ev) => {
           ev.preventDefault();

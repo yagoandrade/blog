@@ -13,7 +13,7 @@ const ProgressContainer = styled.div`
 
 const ProgressBar = styled.div<{ width: number }>`
   height: 3px;
-  background: ${(props) => props.color ?? "#0066ff"};
+  background: ${(props) => props.color ?? "#bf644e"};
   width: ${(props) => props.width || 0}%;
 `;
 
