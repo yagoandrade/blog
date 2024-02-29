@@ -2,7 +2,7 @@ import { BsGithub, BsTwitter } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-between w-full p-4 lg:p-8 dark:text-[#a6abb4] text-sm font-mono">
+    <footer className="flex justify-between w-full p-4 px-6 lg:p-7 dark:text-[#a6abb4] text-sm font-mono">
       <a href="https://linktr.ee/yagoandrade" target="_blank" rel="noreferrer" className="underline decoration-dotted">
         About me
       </a>
